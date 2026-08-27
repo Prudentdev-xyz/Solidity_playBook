@@ -3,6 +3,7 @@ pragma solidity ^0.8.13;
 
 import {Script} from "forge-std/Script.sol";
 import {Counter} from "../src/Counter.sol";
+import {HelloWorld} from "../src/HelloWorld.sol";
 
 contract CounterScript is Script {
     Counter public counter;
@@ -13,6 +14,20 @@ contract CounterScript is Script {
         vm.startBroadcast();
 
         counter = new Counter();
+
+        vm.stopBroadcast();
+    }
+}
+
+contract HelloWorldScript is Script {
+    HelloWorld public helloWorld;
+
+    function setUp() public {}
+
+    function run() public {
+        vm.startBroadcast();
+
+        helloWorld = new HelloWorld();
 
         vm.stopBroadcast();
     }
